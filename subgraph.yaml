@@ -1,0 +1,35 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: IncentivisedVotingLockup
+    network: mainnet
+    source:
+      address: "0xEe1B6b93733eE8BA77f558F8a87480349bD81F7f"
+      abi: IncentivisedVotingLockup
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - DaoChanged
+        - Deposit
+        - Expired
+        - ProtocolDaoChanged
+        - Withdraw
+      abis:
+        - name: IncentivisedVotingLockup
+          file: ./abis/IncentivisedVotingLockup.json
+      eventHandlers:
+        - event: DaoChanged(indexed address,indexed address)
+          handler: handleDaoChanged
+        - event: Deposit(indexed address,uint256,uint256,indexed uint8,uint256)
+          handler: handleDeposit
+        - event: Expired()
+          handler: handleExpired
+        - event: ProtocolDaoChanged(indexed address,indexed address)
+          handler: handleProtocolDaoChanged
+        - event: Withdraw(indexed address,uint256,uint256)
+          handler: handleWithdraw
+      file: ./src/mapping.ts

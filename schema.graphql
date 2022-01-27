@@ -1,0 +1,31 @@
+type DaoChanged @entity {
+  id: ID!
+  previousDao: Bytes! # address
+  newDao: Bytes! # address
+}
+
+type Deposit @entity {
+  id: ID!
+  provider: Bytes! # address
+  value: BigInt! # uint256
+  locktime: BigInt! # uint256
+  action: Int! # uint8
+  ts: BigInt! # uint256
+}
+
+type Expired @entity {
+  id: ID!
+}
+
+type ProtocolDaoChanged @entity {
+  id: ID!
+  previousProtocolDao: Bytes! # address
+  newProtocolDao: Bytes! # address
+}
+
+type Withdraw @entity {
+  id: ID!
+  provider: Bytes! # address
+  value: BigInt! # uint256
+  ts: BigInt! # uint256
+}

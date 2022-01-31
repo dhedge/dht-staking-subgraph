@@ -11,6 +11,7 @@ type Deposit @entity {
   locktime: BigInt! # uint256
   action: Int! # uint8
   ts: BigInt! # uint256
+  blockNumber: Int!
 }
 
 type Expired @entity {
@@ -28,4 +29,9 @@ type Withdraw @entity {
   provider: Bytes! # address
   value: BigInt! # uint256
   ts: BigInt! # uint256
+}
+
+type StakingContract @entity {
+  id: ID! #address
+  balance: BigInt!
 }

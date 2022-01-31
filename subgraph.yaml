@@ -1,4 +1,4 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
 schema:
   file: ./schema.graphql
 dataSources:
@@ -8,6 +8,7 @@ dataSources:
     source:
       address: "0xEe1B6b93733eE8BA77f558F8a87480349bD81F7f"
       abi: IncentivisedVotingLockup
+      startBlock: 11693121
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.5
